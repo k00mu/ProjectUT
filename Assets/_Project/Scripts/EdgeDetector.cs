@@ -20,9 +20,8 @@ namespace WaterUT
 
 		private void Update()
 		{
-			if (!gameObject.activeSelf) return;
-			// Ray ray = new Ray(transform.position, transform.up);
-			// Debug.DrawRay(ray.origin, ray.direction * .2f, Color.blue);
+			Ray ray = new Ray(transform.position, transform.up);
+			Debug.DrawRay(ray.origin, ray.direction * .2f, Color.blue);
 		}
 
 		private void OnTriggerEnter(Collider other)
