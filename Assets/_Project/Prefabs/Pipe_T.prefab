@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: pipeType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 731019888477903637, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
+      propertyPath: edgeDetectorsL.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 731019888477903637, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
+      propertyPath: edgeDetectorsL.Array.data[2]
+      value: 
+      objectReference: {fileID: 4422748625917702566}
+    - target: {fileID: 1232754334438966279, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1555035301229900531, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -74,3 +86,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
+--- !u!114 &4422748625917702566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3929495789680661854, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
+  m_PrefabInstance: {fileID: 858109351874061560}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2557d149bd14407ac9cd29ff1d01ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

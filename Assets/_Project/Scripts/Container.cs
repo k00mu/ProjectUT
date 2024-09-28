@@ -4,31 +4,30 @@
 // 
 // ==================================================
 
-using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 
 namespace WaterUT
 {
-public class Container : MonoBehaviour
+	public class Container : MonoBehaviour
 	{
-		public ContainerType containerType;
-		public SourceType currentSource;
+		protected SourceType CurrentSource;
+		public bool HasFill { get => hasFill; set => hasFill = value; }
 		
-		public List<EdgeDetector> edgeDetectorsL = new List<EdgeDetector>();
-		public bool hasFill;
+		[SerializeField] List<EdgeDetector> edgeDetectorsL = new List<EdgeDetector>();
+		bool hasFill;
 		
 		
 		public void Redistribute()
 		{
 			foreach (var ed in edgeDetectorsL)
 			{
-				if (!ed.isConnect || !ed.toCon || ed.toCon.hasFill)
+				if (!ed.IsConnect || !ed.ToCon || ed.ToCon.hasFill)
 					continue;
 				
-				ed.toCon.hasFill = true;
-				ed.toCon.currentSource = currentSource;
-				ed.toCon.Redistribute();
+				ed.ToCon.hasFill = true;
+				ed.ToCon.CurrentSource = CurrentSource;
+				ed.ToCon.Redistribute();
 			}
 		}
 	}

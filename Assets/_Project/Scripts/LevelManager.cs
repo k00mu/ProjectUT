@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace WaterUT
 {
-	public class GameManager : MonoBehaviourSingleton<GameManager>
+	public class LevelManager : MonoBehaviourSingleton<LevelManager>
 	{
 		[SerializeField] private Transform providerContainer;
 		[SerializeField] private Transform pipeContainer;

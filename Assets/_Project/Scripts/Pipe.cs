@@ -6,46 +6,27 @@
 
 using Komutils.Extensions;
 using System;
+using UnityEngine;
 
 namespace WaterUT
 {
 	public class Pipe : Container
 	{
-		public PipeType pipeType = PipeType.Plus;
-		public PipeDirection initialDirection = PipeDirection.Up;
+		[SerializeField] PipeType pipeType = PipeType.Plus;
+		[SerializeField] PipeDirection initialDirection = PipeDirection.Up;
 
-		public PipeDirection currentDirection;
+		PipeDirection currentDirection;
 
 		
 		private void Start()
 		{
 			Init();
-			Rotate(initialDirection);
 		}
 
 		
 		private void Init()
 		{
-			containerType = ContainerType.Pipe;
-			
-			switch (pipeType)
-			{
-				case PipeType.I:
-					edgeDetectorsL[1].gameObject.SetActive(false);
-					edgeDetectorsL[3].gameObject.SetActive(false);
-					break;
-				case PipeType.L:
-					edgeDetectorsL[2].gameObject.SetActive(false);
-					edgeDetectorsL[3].gameObject.SetActive(false);
-					break;
-				case PipeType.T:
-					edgeDetectorsL[2].gameObject.SetActive(false);
-					break;
-				case PipeType.Plus:
-					break;
-				default:
-					throw new ArgumentOutOfRangeException();
-			}
+			Rotate(initialDirection);
 		}
 
 
@@ -66,8 +47,8 @@ namespace WaterUT
 
 		public void Empty()
 		{
-			hasFill = false;
-			currentSource = SourceType.None;
+			HasFill = false;
+			CurrentSource = SourceType.None;
 		}
 
 
@@ -75,8 +56,7 @@ namespace WaterUT
 		{
 			RotateNext();
 			
-			// Check Redistribute
-			GameManager.Instance.Redistribute();
+			LevelManager.Instance.Redistribute();
 		}
 	}
 }

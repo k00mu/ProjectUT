@@ -4,25 +4,19 @@
 // 
 // ==================================================
 
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace WaterUT
 {
 	public class EdgeDetector : MonoBehaviour
 	{
-		public Container frCon;
-		public Container toCon;
-		public bool isFacingDown;
-		public bool isConnect;
-
-
-		private void Awake()
-		{
-			frCon = GetComponentInParent<Container>();
-		}
-
+		public Container ToCon { get => toCon; }
+		public bool IsConnect { get => isConnect; }
+		
+		Container toCon;
+		bool isFacingDown;
+		bool isConnect;
+		
 
 		private void Update()
 		{

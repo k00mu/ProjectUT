@@ -10,7 +10,7 @@ namespace WaterUT
 {
 	public class Provider : Container
 	{
-		[SerializeField] private SourceType provideSource;
+		[SerializeField] SourceType provideSource;
 		
 		
 		private void Start()
@@ -21,10 +21,7 @@ namespace WaterUT
 
 		private void Init()
 		{
-			containerType = ContainerType.Provider;
-			currentSource = provideSource;
+			CurrentSource = provideSource;
 		}
-		
-		
 	}
 }

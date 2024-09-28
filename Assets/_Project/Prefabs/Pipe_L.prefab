@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: pipeType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 731019888477903637, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
+      propertyPath: edgeDetectorsL.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 891621592956215877, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232754334438966279, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1555035301229900531, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
       propertyPath: m_IsActive
       value: 1
