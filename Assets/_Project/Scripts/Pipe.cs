@@ -5,7 +5,6 @@
 // ==================================================
 
 using Komutils.Extensions;
-using System;
 using UnityEngine;
 
 namespace WaterUT
@@ -18,19 +17,20 @@ namespace WaterUT
 		PipeDirection currentDirection;
 
 		
-		private void Start()
+		void Awake()
 		{
 			Init();
 		}
 
 		
-		private void Init()
+		void Init()
 		{
+			Type = ContainerType.Provider;
 			Rotate(initialDirection);
 		}
 
 
-		private void Rotate(PipeDirection direction)
+		void Rotate(PipeDirection direction)
 		{
 			if (pipeType == PipeType.Plus) return;
 			
@@ -39,20 +39,13 @@ namespace WaterUT
 		}
 
 
-		public void RotateNext()
+		void RotateNext()
 		{
 			Rotate((PipeDirection)(((int)currentDirection - 90) % 360));
 		}
 
 
-		public void Empty()
-		{
-			HasFill = false;
-			CurrentSource = SourceType.None;
-		}
-
-
-		private void OnMouseDown()
+		void OnMouseDown()
 		{
 			RotateNext();
 			

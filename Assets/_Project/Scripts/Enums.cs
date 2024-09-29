@@ -8,13 +8,16 @@ namespace WaterUT
 	public enum ContainerType
 	{
 		Provider,
-		Pipe
+		Pipe,
+		Gallon
 	}
 	
 	public enum SourceType
 	{
 		None,
-		Water
+		Water,
+		FineSand,
+		Gravel
 	}
 	
 	public enum PipeDirection

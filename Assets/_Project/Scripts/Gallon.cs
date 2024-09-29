@@ -5,14 +5,11 @@
 // ==================================================
 
 using UnityEngine;
-namespace WaterUT
 
+namespace WaterUT
 {
-	public class Provider : Container
+	public class Gallon : Container
 	{
-		[SerializeField] SourceType provideSource;
-		
-		
 		void Awake()
 		{
 			Init();
@@ -21,8 +18,7 @@ namespace WaterUT
 
 		void Init()
 		{
-			Type = ContainerType.Provider;
-			CurrentSource = provideSource;
+			Type = ContainerType.Gallon;
 		}
 	}
 }

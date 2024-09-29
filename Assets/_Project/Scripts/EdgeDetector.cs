@@ -4,27 +4,38 @@
 // 
 // ==================================================
 
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace WaterUT
 {
 	public class EdgeDetector : MonoBehaviour
 	{
+		[SerializeField] private ParticleSystem liquidPS;
+		
 		public Container ToCon { get => toCon; }
 		public bool IsConnect { get => isConnect; }
 		
 		Container toCon;
-		bool isFacingDown;
-		bool isConnect;
 		
+		bool isConnect;
 
-		private void Update()
+
+		void Awake()
+		{
+			liquidPS.gameObject.SetActive(false);
+		}
+
+
+		void Update()
 		{
 			Ray ray = new Ray(transform.position, transform.up);
 			Debug.DrawRay(ray.origin, ray.direction * .2f, Color.blue);
 		}
 
-		private void OnTriggerEnter(Collider other)
+
+		void OnTriggerEnter(Collider other)
 		{
 			if (other.gameObject.CompareTag("Connector") == false)
 				return;
@@ -33,8 +44,7 @@ namespace WaterUT
 			isConnect = true;
 		}
 
-
-		private void OnTriggerExit(Collider other)
+		void OnTriggerExit(Collider other)
 		{
 			if (other.gameObject.CompareTag("Connector") == false)
 				return;
@@ -44,12 +54,42 @@ namespace WaterUT
 		}
 		
 
-		private void OnDrawGizmos()
+		void OnDrawGizmos()
 		{
 			if (isConnect)
 			{
 				Gizmos.DrawSphere(transform.position, 0.1f);
 			}
+		}
+
+
+		// public void ChangeLiquidSprite(Sprite sprite)
+		// {
+		// 	liquidPS.textureSheetAnimation.SetSprite(0, sprite);
+		// }
+
+		
+		public void EnableLiquidPS(SourceType type)
+		{
+			liquidPS.gameObject.SetActive(true);
+		}
+
+		
+		public void DisableLiquidPS()
+		{
+			liquidPS.gameObject.SetActive(false);
+		}
+
+
+		public bool IsFacingDown()
+		{
+			return Mathf.Approximately(transform.rotation.eulerAngles.z, 180f);
+		}
+		
+		
+		public bool IsFacingSide()
+		{
+			return Mathf.Approximately(transform.rotation.eulerAngles.z, 90f) || Mathf.Approximately(transform.rotation.eulerAngles.z, 270f);
 		}
 	}
 }

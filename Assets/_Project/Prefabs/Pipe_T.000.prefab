@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2541138805103208113, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
       propertyPath: m_Name
-      value: Pipe_T
+      value: Pipe_T.000
       objectReference: {fileID: 0}
     - target: {fileID: 3313275340640064748, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3313275340640064748, guid: 590c24ba185290b4db39694dfbf1af9a, type: 3}
       propertyPath: m_LocalPosition.y

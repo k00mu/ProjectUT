@@ -15,10 +15,10 @@ namespace WaterUT
 	{
 		[SerializeField] private Transform providerContainer;
 		[SerializeField] private Transform pipeContainer;
-		private List<Provider> providersL;
-		private List<Pipe> pipesL;
+		List<Provider> providersL;
+		List<Pipe> pipesL;
 		
-		private Coroutine redistributeCor;
+		Coroutine redistributeCor;
 
 
 		protected override void Awake()
@@ -39,7 +39,7 @@ namespace WaterUT
 		}
 
 
-		private void Start()
+		void Start()
 		{
 			Redistribute();
 		}
@@ -54,18 +54,14 @@ namespace WaterUT
 		}
 		
 		
-		private IEnumerator RedistributeCor()
+		IEnumerator RedistributeCor()
 		{
 			foreach (var pipe in pipesL)
 			{
 				pipe.Empty();
 			}
 			
-			yield return new WaitForEndOfFrame();
-			yield return new WaitForEndOfFrame();
-			yield return new WaitForEndOfFrame();
-			yield return new WaitForEndOfFrame();
-			yield return new WaitForEndOfFrame();
+			yield return new WaitForSeconds(0.05f);
 			
 			foreach (var provider in providersL)
 			{
