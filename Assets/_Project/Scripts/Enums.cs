@@ -16,8 +16,8 @@ namespace WaterUT
 	{
 		None,
 		Water,
-		FineSand,
-		Gravel
+		Gravel,
+		Sand
 	}
 	
 	public enum PipeDirection
@@ -34,5 +34,14 @@ namespace WaterUT
 		L,
 		Plus,
 		T
+	}
+
+
+	public enum LevelStatus
+	{
+		Locked,
+		Ready,
+		Done,
+		ComingSoon
 	}
 }

@@ -58,6 +58,8 @@ namespace WaterUT
 				ed.ToCon.hasFill = true;
 				ed.ToCon.CurrentSource = CurrentSource;
 				ed.ToCon.Redistribute();
+				
+				
 			}
 		}
 
