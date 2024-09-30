@@ -499,11 +499,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stars:
+  - {fileID: 21300000, guid: 960c207a44391c147a1c8acd8e962bf2, type: 3}
   - {fileID: 21300000, guid: f4df7aab5956f1f4ca40a95845682456, type: 3}
   - {fileID: 21300000, guid: 50a5eba1beb50be4da01aaa6414b5de5, type: 3}
   - {fileID: 21300000, guid: ff256f7e4f473da4da45d143dd0453fa, type: 3}
   starsImg: {fileID: 1056280735268382439}
   levelText: {fileID: 687568717745939419}
+  playBtn: {fileID: 3735771433157477124}
+  closeBtn: {fileID: 1229199792166763321}
 --- !u!225 &4781375274122308410
 CanvasGroup:
   m_ObjectHideFlags: 0

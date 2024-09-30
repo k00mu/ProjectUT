@@ -23,9 +23,12 @@ namespace WaterUT.UI
 		[SerializeField] Sprite[] doneNumbers;
 		[SerializeField] Sprite[] doneStars;
 
+		Button btn;
 
 		public void Init(int level, LevelStatus status, int stars = 0)
 		{
+			btn = GetComponent<Button>();
+			
 			switch (status)
 			{
 				case LevelStatus.Locked:
@@ -34,15 +37,23 @@ namespace WaterUT.UI
 
 				case LevelStatus.Ready:
 					SetReady(level);
+					AddLevelDetailListener(level, stars);
 					break;
 
 				case LevelStatus.Done:
 					SetDone(level, stars);
+					AddLevelDetailListener(level, stars);
 					break;
 
 				default:
 					throw new System.ArgumentException();
 			}
+		}
+		
+		
+		void AddLevelDetailListener(int level, int stars)
+		{
+			btn.onClick.AddListener(() => GameManager.Instance.ShowLevelDetail(level, stars));
 		}
 
 

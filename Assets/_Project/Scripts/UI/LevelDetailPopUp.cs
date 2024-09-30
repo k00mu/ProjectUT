@@ -15,5 +15,19 @@ namespace WaterUT.UI
 		[SerializeField] Sprite[] stars;
 		[SerializeField] Image starsImg;
 		[SerializeField] TextMeshProUGUI levelText;
+		[SerializeField] Button playBtn;
+		[SerializeField] Button closeBtn;
+		
+		public void Init(int level, int stars = 0)
+		{
+			levelText.text = $"Level {level}";
+			starsImg.sprite = this.stars[stars];
+			
+			playBtn.onClick.AddListener(() => GameManager.Instance.PlayLevel(level));
+			closeBtn.onClick.AddListener(() => {
+				GameManager.Instance.HideLevelDetail();
+				closeBtn.onClick.RemoveAllListeners();
+			});
+		}
 	}
 }
