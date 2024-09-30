@@ -1,9 +1,9 @@
-const cacheName = "DefaultCompany-WaterUT-0.0.16";
+const cacheName = "DefaultCompany-WaterUT-0.0.18";
 const contentToCache = [
     "Build/WebGL.loader.js",
-    "Build/WebGL.framework.js.gz",
-    "Build/WebGL.data.gz",
-    "Build/WebGL.wasm.gz",
+    "Build/WebGL.framework.js",
+    "Build/WebGL.data",
+    "Build/WebGL.wasm",
     "TemplateData/style.css"
 
 ];
