@@ -69,5 +69,31 @@ namespace WaterUT
 		{
 			UIAnimator.Play("HideLevelDetailPopUp");
 		}
+
+
+		void ShowPausePopUp()
+		{
+			UIAnimator.Play("ShowPausePopUp");
+		}
+		
+		
+		void HidePausePopUp()
+		{
+			UIAnimator.Play("HidePausePopUp");
+		}
+
+
+		public void Pause()
+		{
+			ShowPausePopUp();
+			Time.timeScale = 0;
+		}
+		
+		
+		public void Resume()
+		{
+			HidePausePopUp();
+			Time.timeScale = 1;
+		}
 	}
 }
