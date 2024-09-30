@@ -17,6 +17,12 @@ namespace WaterUT
 		[SerializeField] LevelDetailPopUp levelDetailPopUp;
 
 
+		void Start()
+		{
+			Screen.fullScreen = true;
+		}
+
+
 		public void Play()
 		{
 			UIAnimator.Play("ToLevel");
