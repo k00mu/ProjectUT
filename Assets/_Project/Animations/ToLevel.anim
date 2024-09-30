@@ -124,7 +124,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: Parent/Level/BackSlider
+    path: Parent/Level/SafeArea/BackSlider
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -349,7 +349,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Parent/Level/BackSlider
+    path: Parent/Level/SafeArea/BackSlider
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -379,7 +379,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: Parent/Level/BackSlider
+    path: Parent/Level/SafeArea/BackSlider
     classID: 224
     script: {fileID: 0}
     flags: 0
