@@ -3,9 +3,10 @@
 //   Created by Atqa Munzir
 // 
 // ==================================================
-using System;
+
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace WaterUT.UI
 {
 	public class PausePopUp : MonoBehaviour
@@ -34,7 +35,7 @@ namespace WaterUT.UI
 		void Level()
 		{
 			// stop/reset the game
-			GameManager.Instance.Play();
+			GameManager.Instance.BackToLevel();
 		}
 		
 		

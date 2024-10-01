@@ -5,70 +5,22 @@
 // ==================================================
 
 using Komutils;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace WaterUT
 {
 	public class LevelManager : MonoBehaviourSingleton<LevelManager>
 	{
-		[SerializeField] private Transform providerContainer;
-		[SerializeField] private Transform pipeContainer;
-		List<Provider> providersL;
-		List<Pipe> pipesL;
-		
-		Coroutine redistributeCor;
-
-
-		protected override void Awake()
-		{
-			base.Awake();
-			
-			providersL = new List<Provider>();
-			for (int i = 0; i < providerContainer.childCount; i++)
-			{
-				providersL.Add(providerContainer.GetChild(i).GetComponent<Provider>());
-			}
-			
-			pipesL = new List<Pipe>();
-			for (int i = 0; i < pipeContainer.childCount; i++)
-			{
-				pipesL.Add(pipeContainer.GetChild(i).GetComponent<Pipe>());
-			}
-		}
-
-
-		void Start()
-		{
-			Redistribute();
-		}
-
-
-		public void Redistribute()
-		{
-			if (redistributeCor != null)
-				return;
-			
-			redistributeCor = StartCoroutine(RedistributeCor());
-		}
+		[SerializeField] Transform[] levels;
 		
 		
-		IEnumerator RedistributeCor()
+		public void StartLevel(int level)
 		{
-			foreach (var pipe in pipesL)
-			{
-				pipe.Empty();
-			}
+			level -= 1;
 			
-			yield return new WaitForSeconds(0.05f);
+			PlaySpaceManager.Instance.Init(levels[level].GetChild(0), levels[level].GetChild(1));
 			
-			foreach (var provider in providersL)
-			{
-				provider.Redistribute();
-			}
-			
-			redistributeCor = null;
+			levels[level].gameObject.SetActive(true);
 		}
 	}
 }

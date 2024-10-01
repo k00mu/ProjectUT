@@ -49,7 +49,7 @@ namespace WaterUT
 		{
 			RotateNext();
 			
-			LevelManager.Instance.Redistribute();
+			PlaySpaceManager.Instance.Redistribute();
 		}
 	}
 }

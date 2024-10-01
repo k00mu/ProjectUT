@@ -5,6 +5,7 @@
 // ==================================================
 
 using Komutils;
+using System.Collections;
 using UnityEngine;
 using WaterUT.UI;
 
@@ -25,7 +26,14 @@ namespace WaterUT
 
 		public void Play()
 		{
-			UIAnimator.Play("ToLevel");
+			UIAnimator.Play("ToLevelFromMenu");
+			InitLevelButtons();
+		}
+		
+		
+		public void BackToLevel()
+		{
+			UIAnimator.Play("ToLevelFromGameplay");
 			InitLevelButtons();
 		}
 		
@@ -43,6 +51,16 @@ namespace WaterUT
 		public void PlayLevel(int level)
 		{
 			UIAnimator.Play("ToGameplay");
+
+			StartCoroutine(PlayLevelCor(level));
+		}
+
+
+		IEnumerator PlayLevelCor(int level)
+		{
+			yield return new WaitForSeconds(0.5f);
+
+			LevelManager.Instance.StartLevel(level);
 		}
 
 
