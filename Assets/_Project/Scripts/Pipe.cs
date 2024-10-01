@@ -6,6 +6,7 @@
 
 using Komutils.Extensions;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace WaterUT
 {
@@ -47,9 +48,12 @@ namespace WaterUT
 
 		void OnMouseDown()
 		{
-			RotateNext();
+			if (!EventSystem.current.IsPointerOverGameObject())
+			{
+				RotateNext();
 			
-			PlaySpaceManager.Instance.Redistribute();
+				PlaySpaceManager.Instance.Redistribute();
+			}
 		}
 	}
 }

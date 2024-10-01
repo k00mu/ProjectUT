@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c632394748105c47bfa241e0dbaeba2
+guid: ea833f02cd3388d409cdae8f986d4f22
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 85
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 180, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: galontumpuk1_0
+      name: BG_Gameplay1_0
       rect:
         serializedVersion: 2
-        x: 176
-        y: 124
-        width: 203
-        height: 262
+        x: 0
+        y: 0
+        width: 1000
+        height: 138
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac716db6e9ab10c40b4ca942e9954504
-      internalID: 1563336050
+      spriteID: f670c002d3822ce4191ecf85e88ec82b
+      internalID: -1056621787
       vertices: []
       indices: 
       edges: []
@@ -147,14 +147,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      galontumpuk1_0: 1563336050
+      BG_Gameplay1_0: -1056621787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

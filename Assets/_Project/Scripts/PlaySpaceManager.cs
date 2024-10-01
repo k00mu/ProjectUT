@@ -8,19 +8,46 @@ using Komutils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace WaterUT
 {
 	public class PlaySpaceManager : MonoBehaviourSingleton<PlaySpaceManager>
 	{
+		[SerializeField] TextMeshProUGUI timerText;
+		float timer = 0f;
+		bool isPlaying = false;
+		
 		List<Provider> providersL;
 		List<Pipe> pipesL;
 		
 		Coroutine redistributeCor;
 
 
-		public void Init(Transform providerContainer, Transform pipeContainer)
+		void Update()
+		{
+			if (!isPlaying) 
+				return;
+			
+			timer -= Time.deltaTime;
+			timerText.text = TimeSpan.FromSeconds(timer).ToString(@"mm\:ss");
+
+			if (!(timer <= 0f))
+				return;
+			
+			GameOver();
+		}
+
+
+		public void GameOver()
+		{
+			isPlaying = false;
+			redistributeCor = null;
+		}
+
+
+		public void Init(Transform providerContainer, Transform pipeContainer, float timerDuration)
 		{
 			providersL = new List<Provider>();
 			for (int i = 0; i < providerContainer.childCount; i++)
@@ -34,6 +61,8 @@ namespace WaterUT
 				pipesL.Add(pipeContainer.GetChild(i).GetComponent<Pipe>());
 			}
 			
+			timer = timerDuration;
+			isPlaying = true;
 			Redistribute();
 		}
 

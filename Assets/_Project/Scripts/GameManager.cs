@@ -58,7 +58,7 @@ namespace WaterUT
 
 		IEnumerator PlayLevelCor(int level)
 		{
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(0.25f);
 
 			LevelManager.Instance.StartLevel(level);
 		}

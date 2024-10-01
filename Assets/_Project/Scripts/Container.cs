@@ -52,6 +52,7 @@ namespace WaterUT
 				if (ed.ToCon.Type == ContainerType.Gallon)
 				{
 					ed.EnableLiquidPS(CurrentSource);
+					(ed.ToCon as Gallon)?.AddSource(CurrentSource);
 					continue;
 				}
 				
