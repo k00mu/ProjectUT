@@ -1,4 +1,4 @@
-const cacheName = "DefaultCompany-WaterUT-0.0.18";
+const cacheName = "DefaultCompany-WaterUT-0.0.22";
 const contentToCache = [
     "Build/WebGL.loader.js",
     "Build/WebGL.framework.js",
