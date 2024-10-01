@@ -25,7 +25,14 @@ namespace WaterUT
 
 		public void Play()
 		{
-			UIAnimator.Play("ToLevel");
+			UIAnimator.Play("ToLevelFromMenu");
+			InitLevelButtons();
+		}
+		
+		
+		public void BackToLevel()
+		{
+			UIAnimator.Play("ToLevelFromGameplay");
 			InitLevelButtons();
 		}
 		
