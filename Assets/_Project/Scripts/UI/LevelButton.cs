@@ -25,10 +25,15 @@ namespace WaterUT.UI
 
 		Button btn;
 
-		public void Init(int level, LevelStatus status, int stars = 0)
+
+		void OnEnable()
 		{
 			btn = GetComponent<Button>();
-			
+		}
+		
+
+		public void Init(int level, LevelStatus status, int stars = 0)
+		{
 			switch (status)
 			{
 				case LevelStatus.Locked:
@@ -53,7 +58,10 @@ namespace WaterUT.UI
 		
 		void AddLevelDetailListener(int level, int stars)
 		{
-			btn.onClick.AddListener(() => GameManager.Instance.ShowLevelDetail(level, stars));
+			btn.onClick.AddListener(() => {
+				AudioManager.Instance.PlayClickSFX();
+				GameManager.Instance.ShowLevelDetail(level, stars);
+			});
 		}
 
 

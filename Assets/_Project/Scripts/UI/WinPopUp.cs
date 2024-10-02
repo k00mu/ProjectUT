@@ -40,16 +40,20 @@ namespace WaterUT.UI
 		
 		void Level()
 		{
+			AudioManager.Instance.PlayClickSFX();
+			GameManager.Instance.HideFluid();
 			GameManager.Instance.BackToLevel();
 		}
 		
 		void Restart()
 		{
+			AudioManager.Instance.PlayClickSFX();
 			GameManager.Instance.RestartLevel();
 		}
 
 		void NextLevel()
 		{
+			AudioManager.Instance.PlayClickSFX();
 			GameManager.Instance.PlayNextLevel();
 		}
 	}

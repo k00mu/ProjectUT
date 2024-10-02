@@ -23,9 +23,14 @@ namespace WaterUT.UI
 			levelText.text = $"Level {level}";
 			starsImg.sprite = this.stars[stars];
 			
-			playBtn.onClick.AddListener(() => GameManager.Instance.PlayLevel(level));
+			playBtn.onClick.AddListener(() => {
+				AudioManager.Instance.PlayClickSFX();
+				GameManager.Instance.PlayLevel(level);
+			});
 			closeBtn.onClick.AddListener(() => {
+				AudioManager.Instance.PlayClickSFX();
 				GameManager.Instance.HideLevelDetail();
+				playBtn.onClick.RemoveAllListeners();
 				closeBtn.onClick.RemoveAllListeners();
 			});
 		}

@@ -77,14 +77,17 @@ namespace WaterUT
 			if (type == SourceType.Gravel)
 			{
 				liquidPS.textureSheetAnimation.SetSprite(0, sprites[0]);
+				AudioManager.Instance.PlayGravelSFX();
 			}
 			else if (type == SourceType.Sand)
 			{
 				liquidPS.textureSheetAnimation.SetSprite(0, sprites[1]);
+				AudioManager.Instance.PlaySandSFX();
 			}
 			else if (type == SourceType.Water)
 			{
 				liquidPS.textureSheetAnimation.SetSprite(0, sprites[2]);
+				AudioManager.Instance.PlayWaterSFX();
 			}
 		}
 
@@ -98,6 +101,7 @@ namespace WaterUT
 		
 		public void DisableLiquidPS()
 		{
+			AudioManager.Instance.StopLiquidSFX();
 			liquidPS.gameObject.SetActive(false);
 		}
 

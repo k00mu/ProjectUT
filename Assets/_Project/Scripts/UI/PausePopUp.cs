@@ -31,6 +31,7 @@ namespace WaterUT.UI
 		
 		void Level()
 		{
+			AudioManager.Instance.PlayClickSFX();
 			GameManager.Instance.Resume();
 			GameManager.Instance.BackToLevel();
 		}
@@ -38,6 +39,7 @@ namespace WaterUT.UI
 		
 		void Resume()
 		{
+			AudioManager.Instance.PlayClickSFX();
 			GameManager.Instance.Resume();
 		}
 	}
