@@ -17,7 +17,7 @@ namespace WaterUT
 		[SerializeField] Animator uiAnimator;
 		[SerializeField] LevelButton[] levelButtons;
 		[SerializeField] LevelDetailPopUp levelDetailPopUp;
-		// [SerializeField] WinPopUp winPopUp;
+		[SerializeField] WinPopUp winPopUp;
 		[SerializeField] Animator fluidAnimator;
 		[SerializeField] MeshRenderer fluidRenderer;
 		[SerializeField] Material[] fluidMaterials; // 0 - dirty water, 1 - clean water
@@ -74,6 +74,8 @@ namespace WaterUT
 		
 		public void PlayNextLevel()
 		{
+			fluidAnimator.Play("HideFluid");
+			uiAnimator.Play("HideWinPopUp");
 			LevelManager.Instance.Stop();
 			PlayLevel(currentLevel + 1);
 		}
@@ -94,7 +96,7 @@ namespace WaterUT
 
 		public void Exit()
 		{
-			Komutils.Helpers.QuitGame();
+			Helpers.QuitGame();
 		}
 		
 		
@@ -135,14 +137,28 @@ namespace WaterUT
 			HidePausePopUp();
 			Time.timeScale = 1;
 		}
+
+
+		public void ShowHintPopUp()
+		{
+			uiAnimator.Play("ShowHintPopUp");
+			Time.timeScale = 0;
+		}
 		
 		
-		public void ShowWinPopUp()
+		public void HideHintPopUp()
+		{
+			uiAnimator.Play("HideHintPopUp");
+			Time.timeScale = 1;
+		}
+		
+		
+		public void ShowWinPopUp(float time)
 		{
 			fluidRenderer.materials = new []{ fluidMaterials[1] };
-			// winPopUp.Init();
+			winPopUp.Init(time);
 			fluidAnimator.Play("ShowFluid");
-			// uiAnimator.Play("ShowWinPopUp");
+			uiAnimator.Play("ShowWinPopUp");
 		}
 		
 		

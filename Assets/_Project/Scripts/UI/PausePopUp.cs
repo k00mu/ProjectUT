@@ -13,14 +13,12 @@ namespace WaterUT.UI
 	{
 		[SerializeField] Button levelBtn;
 		[SerializeField] Button resumeBtn;
-		[SerializeField] Button restartBtn;
 
 
 		void OnEnable()
 		{
 			levelBtn.onClick.AddListener(Level);
 			resumeBtn.onClick.AddListener(Resume);
-			restartBtn.onClick.AddListener(Restart);
 		}
 		
 		
@@ -28,13 +26,12 @@ namespace WaterUT.UI
 		{
 			levelBtn.onClick.RemoveListener(Level);
 			resumeBtn.onClick.RemoveListener(Resume);
-			restartBtn.onClick.RemoveListener(Restart);
 		}
 		
 		
 		void Level()
 		{
-			// stop/reset the game
+			GameManager.Instance.Resume();
 			GameManager.Instance.BackToLevel();
 		}
 		
@@ -42,12 +39,6 @@ namespace WaterUT.UI
 		void Resume()
 		{
 			GameManager.Instance.Resume();
-		}
-		
-		
-		void Restart()
-		{
-			// restart the game
 		}
 	}
 }

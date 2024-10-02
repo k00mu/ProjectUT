@@ -16,8 +16,9 @@ namespace WaterUT
 	public class PlaySpaceManager : MonoBehaviourSingleton<PlaySpaceManager>
 	{
 		[SerializeField] TextMeshProUGUI timerText;
-		float timer = 0f;
-		bool isPlaying = false;
+		float timerDuration;
+		float timer;
+		bool isPlaying;
 		
 		List<Provider> providersL;
 		List<Pipe> pipesL;
@@ -47,9 +48,18 @@ namespace WaterUT
 			
 			GameManager.Instance.ShowLosePopUp();
 		}
+		
+		
+		public void Win()
+		{
+			isPlaying = false;
+			redistributeCor = null;
+			
+			GameManager.Instance.ShowWinPopUp(GetPlayTime());
+		}
 
 
-		public void Init(Transform providerContainer, Transform pipeContainer, float timerDuration)
+		public void Init(Transform providerContainer, Transform pipeContainer, float duration)
 		{
 			providersL = new List<Provider>();
 			for (int i = 0; i < providerContainer.childCount; i++)
@@ -63,7 +73,8 @@ namespace WaterUT
 				pipesL.Add(pipeContainer.GetChild(i).GetComponent<Pipe>());
 			}
 			
-			timer = timerDuration;
+			timerDuration = duration;
+			timer = duration;
 			isPlaying = true;
 			Redistribute();
 		}
@@ -93,6 +104,12 @@ namespace WaterUT
 			}
 			
 			redistributeCor = null;
+		}
+		
+		
+		float GetPlayTime()
+		{
+			return timerDuration - timer;
 		}
 	}
 }

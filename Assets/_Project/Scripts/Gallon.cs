@@ -75,7 +75,7 @@ namespace WaterUT
 		{
 			if (sourcesL.Count == 3 && sourcesL[2] == SourceType.Water)
 			{
-				// PlaySpaceManager.Instance.Win(data);
+				PlaySpaceManager.Instance.Win();
 			}
 		}
 

@@ -46,7 +46,7 @@ namespace WaterUT.UI
 		
 		void Hint()
 		{
-			// animator.SetTrigger("Hint");
+			GameManager.Instance.ShowHintPopUp();
 		}
 
 
