@@ -155,6 +155,7 @@ namespace WaterUT
 		
 		public void ShowWinPopUp(float time)
 		{
+			AudioManager.Instance.PlayWinSFX();
 			fluidRenderer.materials = new []{ fluidMaterials[1] };
 			winPopUp.Init(time);
 			fluidAnimator.Play("ShowFluid");
@@ -164,9 +165,16 @@ namespace WaterUT
 		
 		public void ShowLosePopUp()
 		{
+			AudioManager.Instance.PlayLoseSFX();
 			fluidRenderer.materials = new []{ fluidMaterials[0] };
 			fluidAnimator.Play("ShowFluid");
 			uiAnimator.Play("ShowLosePopUp");
+		}
+		
+		
+		public void HideFluid()
+		{
+			fluidAnimator.Play("HideFluid");
 		}
 	}
 }

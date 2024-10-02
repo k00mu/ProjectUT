@@ -41,8 +41,14 @@ namespace WaterUT
 			{
 				sourcesL.Add(type);
 				UpdateSprite();
-				PlaySound();
 				CheckWinCondition();
+			}
+			else if (
+				(sourcesL.Count == 1 && sourcesL.Last() == SourceType.Gravel) ||
+				(sourcesL.Count == 2 && sourcesL.Last() == SourceType.Sand) ||
+				(sourcesL.Count == 3 && sourcesL.Last() == SourceType.Water))
+			{
+				return;
 			}
 			else
 			{
@@ -54,8 +60,7 @@ namespace WaterUT
 		{
 			return (sourcesL.Count == 0 && type == SourceType.Gravel) ||
 			       (sourcesL.Count == 1 && type == SourceType.Sand) ||
-			       (sourcesL.Count == 2 && type == SourceType.Water) ||
-			       (sourcesL.Count > 0 && sourcesL.Last() == type);
+			       (sourcesL.Count == 2 && type == SourceType.Water);
 		}
 
 		void UpdateSprite()
@@ -66,11 +71,7 @@ namespace WaterUT
 			}
 		}
 
-		void PlaySound()
-		{
-			// Implement sound playing logic here
-		}
-
+		
 		void CheckWinCondition()
 		{
 			if (sourcesL.Count == 3 && sourcesL[2] == SourceType.Water)

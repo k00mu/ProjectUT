@@ -38,6 +38,7 @@ namespace WaterUT.UI
 		
 		void Toggle()
 		{
+			AudioManager.Instance.PlayClickSFX();
 			isOn = !isOn;
 			toggleImg.sprite = toggleSprite[isOn ? 0 : 1];
 			animator.Play(isOn ? "On" : "Off");
@@ -46,12 +47,14 @@ namespace WaterUT.UI
 		
 		void Hint()
 		{
+			AudioManager.Instance.PlayClickSFX();
 			GameManager.Instance.ShowHintPopUp();
 		}
 
 
 		void Pause()
 		{
+			AudioManager.Instance.PlayClickSFX();
 			GameManager.Instance.Pause();
 		}
 	}

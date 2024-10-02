@@ -50,6 +50,8 @@ namespace WaterUT
 		{
 			if (!EventSystem.current.IsPointerOverGameObject())
 			{
+				AudioManager.Instance.PlayClickSFX();
+				
 				RotateNext();
 			
 				PlaySpaceManager.Instance.Redistribute();
