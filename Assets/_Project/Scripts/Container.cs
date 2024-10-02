@@ -18,8 +18,14 @@ namespace WaterUT
 		
 		[SerializeField] List<EdgeDetector> edgeDetectorsL = new List<EdgeDetector>();
 		bool hasFill;
-		
-		
+
+
+		void OnEnable()
+		{
+			LevelManager.Instance.OnStop += Empty;
+		}
+
+
 		public void Redistribute()
 		{
 			var unconnectedEdges = GetUnconnectedEdges();
@@ -52,6 +58,7 @@ namespace WaterUT
 				if (ed.ToCon.Type == ContainerType.Gallon)
 				{
 					ed.EnableLiquidPS(CurrentSource);
+					(ed.ToCon as Gallon)?.AddSource(CurrentSource);
 					continue;
 				}
 				

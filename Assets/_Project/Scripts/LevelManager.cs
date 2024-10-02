@@ -5,6 +5,7 @@
 // ==================================================
 
 using Komutils;
+using System;
 using UnityEngine;
 
 namespace WaterUT
@@ -12,15 +13,28 @@ namespace WaterUT
 	public class LevelManager : MonoBehaviourSingleton<LevelManager>
 	{
 		[SerializeField] Transform[] levels;
+
+		public event Action OnStop;
 		
 		
 		public void StartLevel(int level)
 		{
 			level -= 1;
 			
-			PlaySpaceManager.Instance.Init(levels[level].GetChild(0), levels[level].GetChild(1));
+			PlaySpaceManager.Instance.Init(levels[level].GetChild(0), levels[level].GetChild(1), 60f);
 			
 			levels[level].gameObject.SetActive(true);
+		}
+
+
+		public void Stop()
+		{
+			OnStop?.Invoke();
+			
+			foreach (var level in levels)
+			{
+				level.gameObject.SetActive(false);
+			}
 		}
 	}
 }

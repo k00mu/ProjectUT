@@ -6,6 +6,7 @@
 
 using Komutils.Extensions;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace WaterUT
 {
@@ -17,7 +18,7 @@ namespace WaterUT
 		PipeDirection currentDirection;
 
 		
-		void Awake()
+		void OnEnable()
 		{
 			Init();
 		}
@@ -25,7 +26,7 @@ namespace WaterUT
 		
 		void Init()
 		{
-			Type = ContainerType.Provider;
+			Type = ContainerType.Pipe;
 			Rotate(initialDirection);
 		}
 
@@ -47,9 +48,12 @@ namespace WaterUT
 
 		void OnMouseDown()
 		{
-			RotateNext();
+			if (!EventSystem.current.IsPointerOverGameObject())
+			{
+				RotateNext();
 			
-			PlaySpaceManager.Instance.Redistribute();
+				PlaySpaceManager.Instance.Redistribute();
+			}
 		}
 	}
 }

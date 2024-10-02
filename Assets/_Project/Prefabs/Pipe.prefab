@@ -96,6 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPS: {fileID: 5462879030615282665}
+  sprites:
+  - {fileID: -1682214807, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: -172595376, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: 357585924, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
 --- !u!1 &1232754334438966279
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +196,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPS: {fileID: 2017180602193274051}
+  sprites:
+  - {fileID: -1682214807, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: -172595376, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: 357585924, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
 --- !u!1 &1555035301229900531
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +272,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -1876284861, guid: b1ac526ab99f0ad49b0a6e822061ae60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -372,6 +380,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPS: {fileID: 7844594159665761654}
+  sprites:
+  - {fileID: -1682214807, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: -172595376, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: 357585924, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
 --- !u!1 &2541138805103208113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5247,7 +5259,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -10077,7 +10089,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -13729,9 +13741,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -13794,7 +13806,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -13847,7 +13859,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -13902,11 +13914,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 64
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -14907,7 +14919,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -19737,7 +19749,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -19866,3 +19878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPS: {fileID: 2890314623308281381}
+  sprites:
+  - {fileID: -1682214807, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: -172595376, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: 357585924, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
