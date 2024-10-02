@@ -12,7 +12,8 @@ namespace WaterUT
 {
 	public class EdgeDetector : MonoBehaviour
 	{
-		[SerializeField] private ParticleSystem liquidPS;
+		[SerializeField] ParticleSystem liquidPS;
+		[SerializeField] Sprite[] sprites; 
 		
 		public Container ToCon { get => toCon; }
 		public bool IsConnect { get => isConnect; }
@@ -22,9 +23,11 @@ namespace WaterUT
 		bool isConnect;
 
 
-		void Awake()
+		void OnEnable()
 		{
 			liquidPS.gameObject.SetActive(false);
+			
+			LevelManager.Instance.OnStop += UnConnect;
 		}
 
 
@@ -49,6 +52,12 @@ namespace WaterUT
 			if (other.gameObject.CompareTag("Connector") == false)
 				return;
 
+			UnConnect();
+		}
+
+
+		void UnConnect()
+		{
 			isConnect = false;
 			toCon = null;
 		}
@@ -63,14 +72,26 @@ namespace WaterUT
 		}
 
 
-		// public void ChangeLiquidSprite(Sprite sprite)
-		// {
-		// 	liquidPS.textureSheetAnimation.SetSprite(0, sprite);
-		// }
+		void ChangeLiquidSprite(SourceType type)
+		{
+			if (type == SourceType.Gravel)
+			{
+				liquidPS.textureSheetAnimation.SetSprite(0, sprites[0]);
+			}
+			else if (type == SourceType.Sand)
+			{
+				liquidPS.textureSheetAnimation.SetSprite(0, sprites[1]);
+			}
+			else if (type == SourceType.Water)
+			{
+				liquidPS.textureSheetAnimation.SetSprite(0, sprites[2]);
+			}
+		}
 
 		
 		public void EnableLiquidPS(SourceType type)
 		{
+			ChangeLiquidSprite(type);
 			liquidPS.gameObject.SetActive(true);
 		}
 

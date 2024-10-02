@@ -13,7 +13,7 @@ namespace WaterUT
 		[SerializeField] SourceType provideSource;
 		
 		
-		void Awake()
+		void OnEnable()
 		{
 			Init();
 		}

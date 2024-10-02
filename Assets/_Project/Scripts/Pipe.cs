@@ -18,7 +18,7 @@ namespace WaterUT
 		PipeDirection currentDirection;
 
 		
-		void Awake()
+		void OnEnable()
 		{
 			Init();
 		}
@@ -26,7 +26,7 @@ namespace WaterUT
 		
 		void Init()
 		{
-			Type = ContainerType.Provider;
+			Type = ContainerType.Pipe;
 			Rotate(initialDirection);
 		}
 

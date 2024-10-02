@@ -36,14 +36,16 @@ namespace WaterUT
 			if (!(timer <= 0f))
 				return;
 			
-			GameOver();
+			Lose();
 		}
 
 
-		public void GameOver()
+		public void Lose()
 		{
 			isPlaying = false;
 			redistributeCor = null;
+			
+			GameManager.Instance.ShowLosePopUp();
 		}
 
 

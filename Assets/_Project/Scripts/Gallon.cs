@@ -19,10 +19,12 @@ namespace WaterUT
 		List<SourceType> sourcesL = new List<SourceType>(); 
 		
 		
-		void Awake()
+		void OnEnable()
 		{
 			sr = GetComponentInChildren<SpriteRenderer>();
 			Init();
+			
+			LevelManager.Instance.OnStop += sourcesL.Clear;
 		}
 
 
@@ -73,14 +75,13 @@ namespace WaterUT
 		{
 			if (sourcesL.Count == 3 && sourcesL[2] == SourceType.Water)
 			{
-				// Implement win logic here
+				// PlaySpaceManager.Instance.Win(data);
 			}
 		}
 
 		void HandleGameOver()
 		{
-			Debug.Log("GameOver");
-			// Implement lose logic here
+			PlaySpaceManager.Instance.Lose();
 		}
 	}
 }

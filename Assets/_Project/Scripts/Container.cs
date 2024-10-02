@@ -18,8 +18,14 @@ namespace WaterUT
 		
 		[SerializeField] List<EdgeDetector> edgeDetectorsL = new List<EdgeDetector>();
 		bool hasFill;
-		
-		
+
+
+		void OnEnable()
+		{
+			LevelManager.Instance.OnStop += Empty;
+		}
+
+
 		public void Redistribute()
 		{
 			var unconnectedEdges = GetUnconnectedEdges();

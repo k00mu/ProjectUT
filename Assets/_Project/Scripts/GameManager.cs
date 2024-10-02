@@ -7,15 +7,22 @@
 using Komutils;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 using WaterUT.UI;
 
 namespace WaterUT
 {
 	public class GameManager : MonoBehaviourSingleton<GameManager>
 	{
-		[SerializeField] Animator UIAnimator;
+		[SerializeField] Animator uiAnimator;
 		[SerializeField] LevelButton[] levelButtons;
 		[SerializeField] LevelDetailPopUp levelDetailPopUp;
+		// [SerializeField] WinPopUp winPopUp;
+		[SerializeField] Animator fluidAnimator;
+		[SerializeField] MeshRenderer fluidRenderer;
+		[SerializeField] Material[] fluidMaterials; // 0 - dirty water, 1 - clean water
+
+		int currentLevel;
 
 
 		void Start()
@@ -26,14 +33,15 @@ namespace WaterUT
 
 		public void Play()
 		{
-			UIAnimator.Play("ToLevelFromMenu");
+			uiAnimator.Play("ToLevelFromMenu");
 			InitLevelButtons();
 		}
 		
 		
 		public void BackToLevel()
 		{
-			UIAnimator.Play("ToLevelFromGameplay");
+			LevelManager.Instance.Stop();
+			uiAnimator.Play("ToLevelFromGameplay");
 			InitLevelButtons();
 		}
 		
@@ -50,9 +58,9 @@ namespace WaterUT
 		
 		public void PlayLevel(int level)
 		{
-			UIAnimator.Play("ToGameplay");
-
-			StartCoroutine(PlayLevelCor(level));
+			uiAnimator.Play("ToGameplay");
+			currentLevel = level;
+			StartCoroutine(PlayLevelCor(currentLevel));
 		}
 
 
@@ -62,11 +70,25 @@ namespace WaterUT
 
 			LevelManager.Instance.StartLevel(level);
 		}
+		
+		
+		public void PlayNextLevel()
+		{
+			LevelManager.Instance.Stop();
+			PlayLevel(currentLevel + 1);
+		}
+		
+		
+		public void RestartLevel()
+		{
+			LevelManager.Instance.Stop();
+			PlayLevel(currentLevel);
+		}
 
 
 		public void BackToMenu()
 		{
-			UIAnimator.Play("ToMenu");
+			uiAnimator.Play("ToMenu");
 		}
 
 
@@ -79,25 +101,25 @@ namespace WaterUT
 		public void ShowLevelDetail(int level, int stars)
 		{
 			levelDetailPopUp.Init(level, stars);
-			UIAnimator.Play("ShowLevelDetailPopUp");
+			uiAnimator.Play("ShowLevelDetailPopUp");
 		}
 		
 		
 		public void HideLevelDetail()
 		{
-			UIAnimator.Play("HideLevelDetailPopUp");
+			uiAnimator.Play("HideLevelDetailPopUp");
 		}
 
 
 		void ShowPausePopUp()
 		{
-			UIAnimator.Play("ShowPausePopUp");
+			uiAnimator.Play("ShowPausePopUp");
 		}
 		
 		
 		void HidePausePopUp()
 		{
-			UIAnimator.Play("HidePausePopUp");
+			uiAnimator.Play("HidePausePopUp");
 		}
 
 
@@ -112,6 +134,24 @@ namespace WaterUT
 		{
 			HidePausePopUp();
 			Time.timeScale = 1;
+		}
+		
+		
+		public void ShowWinPopUp()
+		{
+			// change material
+			fluidRenderer.materials[0] = fluidMaterials[1];
+			// winPopUp.Init();
+			fluidAnimator.Play("ShowFluid");
+			// uiAnimator.Play("ShowWinPopUp");
+		}
+		
+		
+		public void ShowLosePopUp()
+		{
+			fluidRenderer.materials[0] = fluidMaterials[0];
+			fluidAnimator.Play("ShowFluid");
+			uiAnimator.Play("ShowLosePopUp");
 		}
 	}
 }

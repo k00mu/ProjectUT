@@ -96,6 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPS: {fileID: 5462879030615282665}
+  sprites:
+  - {fileID: -1682214807, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: -172595376, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: 357585924, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
 --- !u!1 &1232754334438966279
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +196,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPS: {fileID: 2017180602193274051}
+  sprites:
+  - {fileID: -1682214807, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: -172595376, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: 357585924, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
 --- !u!1 &1555035301229900531
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +380,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPS: {fileID: 7844594159665761654}
+  sprites:
+  - {fileID: -1682214807, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: -172595376, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: 357585924, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
 --- !u!1 &2541138805103208113
 GameObject:
   m_ObjectHideFlags: 0
@@ -19866,3 +19878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPS: {fileID: 2890314623308281381}
+  sprites:
+  - {fileID: -1682214807, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: -172595376, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
+  - {fileID: 357585924, guid: b65717644cd11594cb749b37c9b0de21, type: 3}
