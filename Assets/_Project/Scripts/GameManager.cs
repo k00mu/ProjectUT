@@ -139,8 +139,7 @@ namespace WaterUT
 		
 		public void ShowWinPopUp()
 		{
-			// change material
-			fluidRenderer.materials[0] = fluidMaterials[1];
+			fluidRenderer.materials = new []{ fluidMaterials[1] };
 			// winPopUp.Init();
 			fluidAnimator.Play("ShowFluid");
 			// uiAnimator.Play("ShowWinPopUp");
@@ -149,7 +148,7 @@ namespace WaterUT
 		
 		public void ShowLosePopUp()
 		{
-			fluidRenderer.materials[0] = fluidMaterials[0];
+			fluidRenderer.materials = new []{ fluidMaterials[0] };
 			fluidAnimator.Play("ShowFluid");
 			uiAnimator.Play("ShowLosePopUp");
 		}
