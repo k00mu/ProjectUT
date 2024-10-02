@@ -21,7 +21,7 @@ namespace WaterUT
 		{
 			level -= 1;
 			
-			PlaySpaceManager.Instance.Init(levels[level].GetChild(0), levels[level].GetChild(1), 60f);
+			PlaySpaceManager.Instance.Init(levels[level].GetChild(0), levels[level].GetChild(1), 180f);
 			
 			levels[level].gameObject.SetActive(true);
 		}
@@ -29,12 +29,11 @@ namespace WaterUT
 
 		public void Stop()
 		{
-			OnStop?.Invoke();
-			
 			foreach (var level in levels)
 			{
 				level.gameObject.SetActive(false);
 			}
+			OnStop?.Invoke();
 		}
 	}
 }

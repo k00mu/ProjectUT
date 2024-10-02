@@ -34,7 +34,21 @@ namespace WaterUT.UI
 			restartBtn.onClick.AddListener(Restart);
 			nextLevelBtn.onClick.AddListener(NextLevel);
 			
-			// handle stars
+			int starsCount = 3;
+			if (time > 60)
+				starsCount = 2;
+			if (time > 120)
+				starsCount = 1;
+			starsImg.sprite = stars[starsCount - 1];
+				
+			if (GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].stars < starsCount)
+			{
+				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].stars = 3;
+				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].status = LevelStatus.Done;
+			}
+			if (GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status == LevelStatus.Locked)
+				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status = LevelStatus.Ready;
+			GameManager.Instance.SaveData();
 		}
 		
 		

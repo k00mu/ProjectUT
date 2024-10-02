@@ -4,10 +4,12 @@
 // 
 // ==================================================
 
+using JetBrains.Annotations;
 using Komutils;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using WaterUT.UI;
 
 namespace WaterUT
@@ -22,12 +24,40 @@ namespace WaterUT
 		[SerializeField] MeshRenderer fluidRenderer;
 		[SerializeField] Material[] fluidMaterials; // 0 - dirty water, 1 - clean water
 
-		int currentLevel;
+		public LevelDataContainer LevelData;
+		public int currentLevel;
 
 
 		void Start()
 		{
 			Screen.fullScreen = true;
+			LoadData();
+		}
+
+
+		void LoadData()
+		{
+			if (PlayerPrefs.GetString("LevelData") == "")
+			{
+				LevelData = new LevelDataContainer();
+				LevelData.LevelsL = new List<LevelData>();
+				
+				for (int i = 0; i < 3; i++)
+				{
+					LevelData.LevelsL.Add(new LevelData(LevelStatus.Locked, 0));
+				}
+				LevelData.LevelsL[0].status = LevelStatus.Ready;
+			}
+			else
+			{
+				LevelData = JsonUtility.FromJson<LevelDataContainer>(PlayerPrefs.GetString("LevelData"));
+			}
+		}
+		
+		
+		public void SaveData()
+		{
+			PlayerPrefs.SetString("LevelData", JsonUtility.ToJson(LevelData));
 		}
 
 
@@ -40,6 +70,7 @@ namespace WaterUT
 		
 		public void BackToLevel()
 		{
+			AudioManager.Instance.StopLiquidSFX();
 			LevelManager.Instance.Stop();
 			uiAnimator.Play("ToLevelFromGameplay");
 			InitLevelButtons();
@@ -48,16 +79,17 @@ namespace WaterUT
 		
 		void InitLevelButtons()
 		{
-			levelButtons[0].Init(1, LevelStatus.Ready);
+			levelButtons[0].Init(1, LevelData.LevelsL[0].status, LevelData.LevelsL[0].stars);
 			for (int i = 1; i < levelButtons.Length; i++)
 			{
-				levelButtons[i].Init(i + 1, LevelStatus.Locked);
+				levelButtons[i].Init(i + 1, LevelData.LevelsL[i].status, LevelData.LevelsL[i].stars);
 			}
 		}
 		
 		
 		public void PlayLevel(int level)
 		{
+			LevelManager.Instance.Stop();
 			uiAnimator.Play("ToGameplay");
 			currentLevel = level;
 			StartCoroutine(PlayLevelCor(currentLevel));
@@ -83,6 +115,7 @@ namespace WaterUT
 		
 		public void RestartLevel()
 		{
+			AudioManager.Instance.StopLiquidSFX();
 			LevelManager.Instance.Stop();
 			PlayLevel(currentLevel);
 		}
@@ -176,5 +209,27 @@ namespace WaterUT
 		{
 			fluidAnimator.Play("HideFluid");
 		}
+	}
+	
+	
+	[Serializable]
+	public class LevelData
+	{
+		public LevelStatus status;
+		public int stars;
+		
+		
+		public LevelData(LevelStatus status, int stars)
+		{
+			this.status = status;
+			this.stars = stars;
+		}
+	}
+	
+	
+	[Serializable]
+	public class LevelDataContainer
+	{
+		public List<LevelData> LevelsL;
 	}
 }
