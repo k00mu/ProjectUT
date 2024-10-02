@@ -34,6 +34,7 @@ namespace WaterUT.UI
 
 		public void Init(int level, LevelStatus status, int stars = 0)
 		{
+			btn.onClick.RemoveAllListeners();
 			switch (status)
 			{
 				case LevelStatus.Locked:

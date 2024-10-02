@@ -26,6 +26,8 @@ namespace WaterUT.UI
 			playBtn.onClick.AddListener(() => {
 				AudioManager.Instance.PlayClickSFX();
 				GameManager.Instance.PlayLevel(level);
+				playBtn.onClick.RemoveAllListeners();
+				closeBtn.onClick.RemoveAllListeners();
 			});
 			closeBtn.onClick.AddListener(() => {
 				AudioManager.Instance.PlayClickSFX();
