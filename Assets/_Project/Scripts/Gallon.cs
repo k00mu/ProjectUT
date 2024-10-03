@@ -37,18 +37,19 @@ namespace WaterUT
 
 		public void AddSource(SourceType type)
 		{
+			if (
+				(sourcesL.Count == 1 && type == SourceType.Gravel) ||
+				(sourcesL.Count == 2 && type == SourceType.Sand) ||
+				(sourcesL.Count == 3 && type == SourceType.Water))
+			{
+				return;
+			}
+			
 			if (IsValidAddition(type))
 			{
 				sourcesL.Add(type);
 				UpdateSprite();
 				CheckWinCondition();
-			}
-			else if (
-				(sourcesL.Count == 1 && sourcesL.Last() == SourceType.Gravel) ||
-				(sourcesL.Count == 2 && sourcesL.Last() == SourceType.Sand) ||
-				(sourcesL.Count == 3 && sourcesL.Last() == SourceType.Water))
-			{
-				return;
 			}
 			else
 			{
