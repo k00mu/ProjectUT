@@ -67,7 +67,7 @@ namespace WaterUT.UI
 
 		void NextLevel()
 		{
-			if (GameManager.Instance.currentLevel < 3)
+			if (GameManager.Instance.currentLevel - 1 < 3)
 			{
 				AudioManager.Instance.PlayClickSFX();
 				GameManager.Instance.PlayNextLevel();
