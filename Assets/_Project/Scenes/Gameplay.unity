@@ -20077,10 +20077,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PausePopUp
       objectReference: {fileID: 0}
-    - target: {fileID: 4600625622172029599, guid: c15d10490617c8244aed516f081743c2, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8443999434562745231, guid: c15d10490617c8244aed516f081743c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
