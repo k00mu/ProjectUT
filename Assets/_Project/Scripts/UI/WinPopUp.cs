@@ -46,7 +46,7 @@ namespace WaterUT.UI
 				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].stars = 3;
 				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].status = LevelStatus.Done;
 			}
-			if (GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status == LevelStatus.Locked)
+			if (GameManager.Instance.currentLevel < 3 && GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status == LevelStatus.Locked)
 				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status = LevelStatus.Ready;
 			GameManager.Instance.SaveData();
 		}
@@ -67,8 +67,15 @@ namespace WaterUT.UI
 
 		void NextLevel()
 		{
-			AudioManager.Instance.PlayClickSFX();
-			GameManager.Instance.PlayNextLevel();
+			if (GameManager.Instance.currentLevel < 3)
+			{
+				AudioManager.Instance.PlayClickSFX();
+				GameManager.Instance.PlayNextLevel();
+			}
+			else
+			{
+				Level();
+			}
 		}
 	}
 }
