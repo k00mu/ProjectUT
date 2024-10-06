@@ -20,8 +20,10 @@ namespace WaterUT
 		public void StartLevel(int level)
 		{
 			level -= 1;
-			
-			PlaySpaceManager.Instance.Init(levels[level].GetChild(0), levels[level].GetChild(1), 180f);
+
+			if (level >= 3)
+				level = 2;
+			PlaySpaceManager.Instance.Init(levels[level].GetChild(0), levels[level].GetChild(1), 120f);
 			
 			levels[level].gameObject.SetActive(true);
 		}

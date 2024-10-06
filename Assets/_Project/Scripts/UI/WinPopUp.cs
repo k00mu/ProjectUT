@@ -22,6 +22,10 @@ namespace WaterUT.UI
 		
 		public void Init(float time)
 		{
+			levelBtn.onClick.RemoveAllListeners();
+			restartBtn.onClick.RemoveAllListeners();
+			nextLevelBtn.onClick.RemoveAllListeners();
+			
 			var timeSpan = TimeSpan.FromSeconds(time);
 			var timeStr = timeSpan.ToString(@"mm\:ss");
 			
@@ -35,9 +39,9 @@ namespace WaterUT.UI
 			nextLevelBtn.onClick.AddListener(NextLevel);
 			
 			int starsCount = 3;
-			if (time > 60)
+			if (time >= 60)
 				starsCount = 2;
-			if (time > 120)
+			if (time >= 90)
 				starsCount = 1;
 			starsImg.sprite = stars[starsCount - 1];
 				
@@ -46,7 +50,7 @@ namespace WaterUT.UI
 				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].stars = 3;
 				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].status = LevelStatus.Done;
 			}
-			if (GameManager.Instance.currentLevel < 3 && GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status == LevelStatus.Locked)
+			if (starsCount == 3 && GameManager.Instance.currentLevel < 3 && GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status == LevelStatus.Locked)
 				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status = LevelStatus.Ready;
 			GameManager.Instance.SaveData();
 		}
@@ -67,7 +71,7 @@ namespace WaterUT.UI
 
 		void NextLevel()
 		{
-			if (GameManager.Instance.currentLevel - 1 < 3)
+			if (GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].status == LevelStatus.Ready &&GameManager.Instance.currentLevel - 1 < 3)
 			{
 				AudioManager.Instance.PlayClickSFX();
 				GameManager.Instance.PlayNextLevel();

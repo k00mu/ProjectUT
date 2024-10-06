@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5851261065499795726}
   - component: {fileID: 6484040619633924838}
   - component: {fileID: 3929495789680661854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left
   m_TagString: Connector
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 1591843824830182765}
   - component: {fileID: 8988086575871251570}
   - component: {fileID: 4896264344219573449}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Down
   m_TagString: Connector
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7096784208031867380}
   - component: {fileID: 3904725502882047159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 6628125972767355578}
   - component: {fileID: 585530966953535607}
   - component: {fileID: 2221515388369347731}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right
   m_TagString: Connector
   m_Icon: {fileID: 0}
@@ -395,9 +395,9 @@ GameObject:
   - component: {fileID: 3313275340640064748}
   - component: {fileID: 731019888477903637}
   - component: {fileID: 7732931424324317555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 6099799209962473347}
   - component: {fileID: 7844594159665761654}
   - component: {fileID: 506382891700567666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LiquidPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5303,7 +5303,7 @@ GameObject:
   - component: {fileID: 1469081483178871173}
   - component: {fileID: 2890314623308281381}
   - component: {fileID: 1605596188435397975}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LiquidPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10133,7 +10133,7 @@ GameObject:
   - component: {fileID: 2133104209400257658}
   - component: {fileID: 2017180602193274051}
   - component: {fileID: 3903363680720240805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LiquidPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14963,7 +14963,7 @@ GameObject:
   - component: {fileID: 6583557642585193593}
   - component: {fileID: 5462879030615282665}
   - component: {fileID: 6258458517533689482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LiquidPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19794,7 +19794,7 @@ GameObject:
   - component: {fileID: 2339738021759981872}
   - component: {fileID: 1625462203199879193}
   - component: {fileID: 5979594603195070834}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Up
   m_TagString: Connector
   m_Icon: {fileID: 0}

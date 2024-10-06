@@ -46,7 +46,7 @@ namespace WaterUT
 		}
 
 
-		void OnMouseDown()
+		public void Input()
 		{
 			if (!EventSystem.current.IsPointerOverGameObject())
 			{

@@ -17,6 +17,9 @@ namespace WaterUT.UI
 
 		void OnEnable()
 		{
+			levelBtn.onClick.RemoveAllListeners();
+			resumeBtn.onClick.RemoveAllListeners();
+			
 			levelBtn.onClick.AddListener(Level);
 			resumeBtn.onClick.AddListener(Resume);
 		}

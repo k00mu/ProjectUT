@@ -20,19 +20,20 @@ namespace WaterUT.UI
 		
 		public void Init(int level, int stars = 0)
 		{
+			playBtn.onClick.RemoveAllListeners();
+			closeBtn.onClick.RemoveAllListeners();
+
 			levelText.text = $"Level {level}";
-			starsImg.sprite = this.stars[stars];
+			starsImg.sprite = this.stars[stars - 1];
 			
 			playBtn.onClick.AddListener(() => {
 				AudioManager.Instance.PlayClickSFX();
 				GameManager.Instance.PlayLevel(level);
 				playBtn.onClick.RemoveAllListeners();
-				closeBtn.onClick.RemoveAllListeners();
 			});
 			closeBtn.onClick.AddListener(() => {
 				AudioManager.Instance.PlayClickSFX();
 				GameManager.Instance.HideLevelDetail();
-				playBtn.onClick.RemoveAllListeners();
 				closeBtn.onClick.RemoveAllListeners();
 			});
 		}

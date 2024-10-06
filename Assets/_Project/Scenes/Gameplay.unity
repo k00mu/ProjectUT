@@ -15264,8 +15264,8 @@ MonoBehaviour:
   nextLevelBtn: {fileID: 1327467803}
   stars:
   - {fileID: 21300000, guid: f4df7aab5956f1f4ca40a95845682456, type: 3}
-  - {fileID: 21300000, guid: ff256f7e4f473da4da45d143dd0453fa, type: 3}
   - {fileID: 21300000, guid: 50a5eba1beb50be4da01aaa6414b5de5, type: 3}
+  - {fileID: 21300000, guid: ff256f7e4f473da4da45d143dd0453fa, type: 3}
   starsImg: {fileID: 1385177984}
   timeImg:
   - {fileID: 1452749878}

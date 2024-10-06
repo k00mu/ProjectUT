@@ -72,7 +72,7 @@ namespace WaterUT.UI
 			ready.SetActive(false);
 			done.SetActive(true);
 			
-			doneImg.sprite = doneStars[stars - 1];
+			doneImg.sprite = doneStars[stars - 2];
 			text.sprite = doneNumbers[level - 1];
 		}
 		

@@ -26,12 +26,39 @@ namespace WaterUT
 
 		public LevelDataContainer LevelData;
 		public int currentLevel;
+		
+		Camera targetCamera;
+
+
+		protected override void Awake()
+		{
+			base.Awake();
+			
+			targetCamera = Camera.main;
+		}
 
 
 		void Start()
 		{
 			Screen.fullScreen = true;
 			LoadData();
+		}
+
+
+		void Update()
+		{
+			if (Input.GetMouseButtonDown(0))
+			{
+				var ray = Instance.targetCamera.ScreenPointToRay(Input.mousePosition);
+						
+				Physics.Raycast(ray, out var raycastHitInfo, float.MaxValue, LayerMask.GetMask("Pipe"));
+						
+				if (raycastHitInfo.collider != null)
+				{
+					Pipe pipe = raycastHitInfo.collider.GetComponent<Pipe>();
+					pipe.Input();
+				}
+			}
 		}
 
 
