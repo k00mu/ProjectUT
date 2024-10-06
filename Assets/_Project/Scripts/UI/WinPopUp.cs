@@ -47,7 +47,7 @@ namespace WaterUT.UI
 				
 			if (GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].stars < starsCount)
 			{
-				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].stars = 3;
+				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].stars = starsCount;
 				GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].status = LevelStatus.Done;
 			}
 			if (starsCount == 3 && GameManager.Instance.currentLevel < 3 && GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status == LevelStatus.Locked)
@@ -71,7 +71,11 @@ namespace WaterUT.UI
 
 		void NextLevel()
 		{
-			if (GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel - 1].status == LevelStatus.Ready &&GameManager.Instance.currentLevel - 1 < 3)
+			if (GameManager.Instance.currentLevel == 3)
+			{
+				Level();
+			}
+			else if (GameManager.Instance.LevelData.LevelsL[GameManager.Instance.currentLevel].status == LevelStatus.Ready && GameManager.Instance.currentLevel - 1 < 3)
 			{
 				AudioManager.Instance.PlayClickSFX();
 				GameManager.Instance.PlayNextLevel();

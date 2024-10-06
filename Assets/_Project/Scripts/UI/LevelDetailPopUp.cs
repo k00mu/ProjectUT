@@ -24,7 +24,7 @@ namespace WaterUT.UI
 			closeBtn.onClick.RemoveAllListeners();
 
 			levelText.text = $"Level {level}";
-			starsImg.sprite = this.stars[stars - 1];
+			starsImg.sprite = this.stars[stars == 0 ? 0 : stars];
 			
 			playBtn.onClick.AddListener(() => {
 				AudioManager.Instance.PlayClickSFX();

@@ -56,7 +56,7 @@ namespace WaterUT
 				if (raycastHitInfo.collider != null)
 				{
 					Pipe pipe = raycastHitInfo.collider.GetComponent<Pipe>();
-					pipe.Input();
+					pipe?.Input();
 				}
 			}
 		}
